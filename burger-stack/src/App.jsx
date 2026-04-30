@@ -28,19 +28,21 @@ function App() {
   function removeLast() {
     let copiedIngredients = [...burger];
 
-    copiedIngredients.pop();
+    copiedIngredients.shift();
 
     setBurger(copiedIngredients);
   }
 
-  function submitOrder() {
+  function submitOrder(nameForOrder) {
     const httpRequest = {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',
       },
-      body: JSON.strigify({burger, nameForOrder})
+      body: JSON.stringify({burger, nameForOrder})
       }
+
+      console.log(httpRequest);
   }
 
   return (
@@ -49,7 +51,7 @@ function App() {
             <Nav></Nav>
             <IngredientPicker addIngredient={addIngredient}></IngredientPicker>
             <BurgerView burger={burger}></BurgerView>
-            <Options></Options>
+            <Options burger={burger} onClear={clearBurger} onRemoveLast={removeLast} onSubmit={submitOrder}></Options>
         </div>
     </>
   )

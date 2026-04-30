@@ -1,13 +1,21 @@
-function Options({ onClear, onRemoveLast, onSubmit }){
+import { useState } from "react";
+
+function Options({ burger, onClear, onRemoveLast, onSubmit }){
     
+    const [name, setName] = useState("")
     
-    
+    function onInput(event){
+        let copiedName = event.target.value;
+
+        setName(copiedName);
+    }
+
     return (
         <div>
             <p>options</p>
 
             <label for="name">Name For Order: </label>
-            <input value={name}></input>
+            <input value={name} onChange={onInput}></input>
 
             <br/>
 
@@ -21,7 +29,7 @@ function Options({ onClear, onRemoveLast, onSubmit }){
             <br/>
             <br/>
             
-            <button type="button" onClick={onSubmit}>Order</button>
+            <button type="button" onClick={() => onSubmit(name)}>Order</button>
         </div>
     );
 }
