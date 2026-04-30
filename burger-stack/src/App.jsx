@@ -10,14 +10,22 @@ import IngredientPicker from './components/IngredientPicker.jsx'
 import Options from './components/Options.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [burger, setBurger] = useState([])
+
+  function addIngredient(ingredient){
+    let copiedIngredients = [...burger];
+
+    copiedIngredients.unshift(ingredient);
+
+    setBurger(copiedIngredients);
+  }
 
   return (
     <>
         <div>
             <Nav></Nav>
-            <IngredientPicker></IngredientPicker>
-            <BurgerView></BurgerView>
+            <IngredientPicker addIngredient={addIngredient}></IngredientPicker>
+            <BurgerView burger={burger}></BurgerView>
             <Options></Options>
         </div>
     </>

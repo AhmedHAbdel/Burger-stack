@@ -1,6 +1,8 @@
-function FoodItem(){
+function FoodItem({ itemName, addIngredient }){
+    let className = itemName;
+
     return (
-        <p>food item</p>
+        <button className={className} onClick={() => addIngredient(itemName)}>{itemName}</button>
     );
 }
 

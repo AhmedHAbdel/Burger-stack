@@ -1,6 +1,17 @@
-function BurgerView(){
+import FoodItem from "./FoodItem";
+
+function BurgerView({ burger }){
     return (
-        <p>burger view</p>
+        <div>
+            <h2>Burger:</h2>
+            {burger.map(item => {
+                return (
+                    <div>
+                        <FoodItem itemName={item}/>
+                        <br />
+                    </div>)
+                })}
+        </div>
     );
 }
 
