@@ -9,6 +9,7 @@ import BurgerView from './components/BurgerView.jsx'
 import IngredientPicker from './components/IngredientPicker.jsx'
 import Options from './components/Options.jsx'
 
+
 function App() {
   const [burger, setBurger] = useState([])
 
@@ -18,6 +19,22 @@ function App() {
     copiedIngredients.unshift(ingredient);
 
     setBurger(copiedIngredients);
+  }
+
+  function clearBurger() {
+    setBurger([]);
+  }
+
+  function removeLast() {
+    let copiedIngredients = [...burger];
+
+    copiedIngredients.pop();
+
+    setBurger(copiedIngredients);
+  }
+
+  function submitOrder() {
+    
   }
 
   return (
