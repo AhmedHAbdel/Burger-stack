@@ -34,7 +34,13 @@ function App() {
   }
 
   function submitOrder() {
-    
+    const httpRequest = {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json',
+      },
+      body: JSON.strigify({burger, nameForOrder})
+      }
   }
 
   return (
